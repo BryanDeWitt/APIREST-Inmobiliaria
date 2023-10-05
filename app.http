@@ -1,0 +1,53 @@
+### get houses
+GET http://localhost:6969/casas
+
+### get the house by id
+GET http://localhost:6969/casas/651d7a75f2fb3ffb2b599aeb
+
+### get users to see if all is working
+GET http://localhost:6969/users
+
+### create a user
+POST http://localhost:6969/users/sign-in
+Content-Type: application/json
+
+{
+  
+  "email": "tardaa@gmail.com",
+  "name": "Bryan",
+  "password": "PepitoElClown12"
+}
+
+### log in 
+POST http://localhost:6969/users/log-in
+Content-Type: application/json
+
+{
+  "email": "tardaa@gmail.com",
+  "password": "PepitoElClown12"
+}
+
+### add a new house
+POST http://localhost:6969/casas
+Content-Type: application/json
+
+{
+  "name": "Casa Epica",
+  "price": 8500,
+  "description": "Excelente casa para dormir de noche",
+  "location": "Minas",
+  "details": "Se cae a pedazos a veces"
+  
+}
+
+### borrar una casa
+DELETE http://localhost:6969/casas/651f03f3b7fcaf5011664696
+### actualizar una casa
+PATCH http://localhost:6969/casas/651d7a75f2fb3ffb2b599aeb
+Content-Type: application/json
+
+{
+  "name": "Casa Bonita",
+  "location": "Pepito"
+}
+
