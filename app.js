@@ -5,7 +5,6 @@ import { corsMiddleware } from './middlewares/cors.js'
 import { v2 as cloudinary } from 'cloudinary'
 import cookieParser from 'cookie-parser'
 import { houseRouter } from './routes/houseRouter.js'
-import { userRouter } from './routes/userRouter.js'
 const app = express()
 app.disable('x-powered-by')
 cloudinary.config({
@@ -29,8 +28,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/casas', houseRouter)
-app.use('/users', userRouter)
+app.use('/houses', houseRouter)
 
 const PORT = process.env.PORT ?? 3000
 

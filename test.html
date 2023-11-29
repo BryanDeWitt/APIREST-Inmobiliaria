@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Form</title>
+</head>
+
+<body>
+  <form action="http://localhost:6969/houses" method="post" enctype="multipart/form-data">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" required><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" required></textarea><br>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required><br>
+
+    <label for="details">Details:</label>
+    <textarea id="details" name="details" rows="4" required></textarea><br>
+
+    <label for="locationURL">Location URL:</label>
+    <input type="url" id="locationURL" name="locationURL" required><br>
+
+    <label for="bathroom">Number of Bathrooms:</label>
+    <input type="number" id="bathroom" name="bathroom" required><br>
+
+    <label for="kitchen">Number of Kitchens:</label>
+    <input type="number" id="kitchen" name="kitchen" required><br>
+
+    <label for="bedroom">Number of Bedrooms:</label>
+    <input type="number" id="bedroom" name="bedroom" required><br>
+
+    <label for="garage">Garage:</label>
+    <input type="checkbox" id="garage" name="garage"><br>
+
+    <label for="garden">Garden:</label>
+    <input type="checkbox" id="garden" name="garden"><br>
+
+    <label for="mainImage">Main Image:</label>
+    <input type="file" id="mainImage" name="mainImage" accept="image/*" required><br>
+
+    <label for="additionalImages">Additional Images:</label>
+    <input type="file" id="additionalImages" name="gallery" accept="image/*" multiple><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+
+</html>

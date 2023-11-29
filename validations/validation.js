@@ -27,30 +27,10 @@ export const houseSchema = z.object({
   }).min(5, { message: 'House details must be at least 5 characters long' })
 })
 
-export const userSchema = z.object({
-  email: z.string({}).refine(mail => /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(mail), {
-    message: 'User mail must be a valid email address'
-  }),
-  name: z.string({
-    invalid_type_error: 'User name must be a string',
-    required_error: 'User name is required'
-  }).min(5, { message: 'User name must be at least 5 characters long' }),
-  password: z.string({
-    invalid_type_error: 'User password must be a string',
-    required_error: 'User password is required'
-  }).min(5, { message: 'User password must be at least 5 characters long' }).refine((password) => /^(?=.*[A-Za-z])(?=.*\d)/.test(password), {
-    message: 'User password must contain at least one character and one number'
-  })
-})
-
 export const validateHouse = (house) => {
   return houseSchema.safeParse(house)
 }
 
 export const validatePartialHouse = (house) => {
   return houseSchema.partial().safeParse(house)
-}
-
-export const validateUser = (user) => {
-  return userSchema.safeParse(user)
 }

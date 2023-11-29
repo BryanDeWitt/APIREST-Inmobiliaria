@@ -1,30 +1,55 @@
 import { House } from '../schemas/mongooseSchemas.js'
 
 export class HouseModel {
-  static async getHouse () {
-    return await House.find()
+  static async getAllHouses () {
+    try {
+      return await House.find()
+    } catch (error) {
+      console.error(error)
+      throw new Error('Error fetching houses')
+    }
   }
 
   static async getHouseById ({ id }) {
-    return await House.findById(id)
+    try {
+      return await House.findById(id)
+    } catch (error) {
+      console.error(error)
+      throw new Error('Error fetching house by ID')
+    }
   }
 
   static async patchHouse ({ id, resultData }) {
-    return await House.findByIdAndUpdate(id, resultData, { new: true })
+    try {
+      return await House.findByIdAndUpdate(id, resultData, { new: true })
+    } catch (error) {
+      console.error(error)
+      throw new Error('Error updating house')
+    }
   }
 
   static async createHouse ({ resultData, mainImageUrl, gallery }) {
-    const newHouse = new House({
-      ...resultData,
-      images: {
-        mainImage: mainImageUrl,
-        gallery
-      }
-    })
-    return await newHouse.save()
+    try {
+      const newHouse = new House({
+        ...resultData,
+        images: {
+          mainImage: mainImageUrl,
+          gallery
+        }
+      })
+      return await newHouse.save()
+    } catch (error) {
+      console.error(error)
+      throw new Error('Error creating house')
+    }
   }
 
   static async deleteHouse ({ id }) {
-    return await House.findByIdAndDelete(id)
+    try {
+      return await House.findByIdAndDelete(id)
+    } catch (error) {
+      console.error(error)
+      throw new Error('Error deleting house')
+    }
   }
 }
